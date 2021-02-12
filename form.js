@@ -88,7 +88,6 @@ firebase.database().ref('winners').on('value' , (data)=>{
     <td><h5 class="text12">${users[user].userName}</h5></td>
     <td><h5 class="text13">${users[user].status}</h5></td>
     <td><h5 class="text14">${users[user].time}</h5></td>
-    <td><h5 class="text14">${users[user].dboy}</h5></td>
     </tr>
     `;
     document.getElementById('loading').style.display="none";
