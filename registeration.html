@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blood.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="success.css" type="text/css">
+    <title>Vijnanam Members Registeration</title>
+</head>
+<body class="regbody">
+    <div class="container">
+        <div style="text-align:center">
+          <h2>വിജ്ഞാനം 2021 Members രെജിസ്റ്ററേഷൻ ഫോം </h2>
+          <h5>താഴെ തന്നിരിക്കുന്ന ഫോം ഫിൽ ചെയ്തു സുബ്മിറ്റ് ബട്ടൺ ക്ലിക്ക് ചെയ്യുക </h5>
+          <h5>Fill The Form Given Below And Click The Submit Button</h5>
+        </div>
+        <div class="row">
+          
+          <div class="column">
+            <form id="submit-form" method="POST" action="">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" name="name" placeholder="Name" required>
+              <label for="duty">Class</label>
+              <select id="calss" name="class">
+                <option value="no">Choose..</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="other">Other..</option>
+              </select>
+
+
+              <label for="phnumber">ഫോൺ നമ്പർ</label>
+              <input type="text" id="number" name="number" placeholder="+91 **********" required>
+              <label for="phnumber">വയസ്സ്</label>
+              <input type="text" id="age" name="age" placeholder="eg:10" required>
+              <h1 id="load" style="display: none; color: black;"><strong> Your Data Is Analysing  Please Wait Few Second..</strong></h1>
+              <input type="submit" id="submitbtn" class="submitbtn" value="Submit">
+            </form>
+          </div>
+          <!--<div class="column">
+            <img src="./images/blood123 (2).jpg" style="width:100%">
+          </div> -->
+          <!-- <div id="success-box" >
+            <div class="dot"></div>
+            <div class="dot two"></div>
+            <div class="face">
+              <div class="eye"></div>
+              <div class="eye right"></div>
+              <div class="mouth happy"></div>
+            </div>
+            <div class="shadow scale"></div>
+            <div class="message"><h5 class="alert">താങ്കളുടെ രെജിസ്റ്ററേഷൻ ഫോം ഞങ്ങള്ക്ക് ലഭിച്ചിട്ടുണ്ട് താങ്കൾ ഈ പദ്ധതിയിൽ അംഗമായങ്കിൽ താങ്കളുടെ ഫോൺനമ്പറിലേക്കു ഒരു SMS വരുന്നതാണ് .</h5><h4>താഴെ കാണുന്ന Continue  ബട്ടൺ  ക്ലിക്ക് ചെയ്യുക</h4></div>
+            <button  class="button-box" onclick="success()"><h1 class="red">Continue</h1></button>
+          </div>
+
+          <div id="error-box" >
+            <div class="dot"></div>
+            <div class="dot two"></div>
+            <div class="face">
+              <div class="eye"></div>
+              <div class="eye right"></div>
+              <div class="mouth sad"></div>
+            </div>
+            <div class="shadow scale"></div>
+            <div class="message"><h5 class="alert">Something Went Wrong!.Check Your Internet Connection,Your Form Is Not Submitted</h5><h4>Click The Continue Button Below To Resubmit</h4></div>
+            <button  class="button-box" onclick="error()"><h1 class="red">Continue</h1></button>
+          </div>
+        </div>
+      </div> -->
+	
+      
+      <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault();
+
+            var button = document.getElementById("submitbtn");
+
+            button.value='Please Wait...';
+
+            document.getElementById("load").style.display="block";
+
+
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbx6XiXfyyJRSenXvajM5BTU5vIxH3MVwvlK6COq/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    // document.getElementById("success-box").style.display="block";
+                      success();
+                      function success(){
+                        window.location.href="success.html"
+                      }
+                    
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                  // document.getElementById("error-box").style.display="block";
+                  alert("An Error Occured Please Check Your Internet Connection")
+    
+                }
+            })
+        })
+
+        function success(){
+             window.location.href="success.html"
+                      }
+
+        function error(){
+         alert("<h1><strong>A Error Occured</strong><h1>Please Check Your Internet Connection")
+        }
+
+      
+    </script>
+</body>
+</html>
