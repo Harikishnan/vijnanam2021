@@ -91,7 +91,7 @@ firebase.database().ref('comments').on('value' , (data)=>{
 })
 
 function success(){
-  window.location.href="success.html"
+  window.location.reload();
 }
 
 
