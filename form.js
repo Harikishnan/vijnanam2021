@@ -38,7 +38,9 @@ var class1 = document.getElementById('cls');
 var delivery = document.getElementById('dlv');
 var dboy = document.getElementById('dboy');
 var time = document.getElementById('time');
-var status = document.getElementById('status')
+var status = document.getElementById('status');
+var address = document.getElementById('adr');
+var place =  document.getElementById('plc');
 var dataemail =document.getElementById('dataemail');
 firebase.auth().signInAnonymously().then(function(response){
   firebase.database().ref('winners').push({
@@ -47,6 +49,8 @@ firebase.auth().signInAnonymously().then(function(response){
     class1:class1.value,
     dboy:dboy.value,
     time:time.value,
+    address:address.value,
+    place:place.value,
     status:status.value,
     delivery:delivery.value,
     userId:firebase.auth().currentUser.uid,
@@ -62,6 +66,8 @@ firebase.auth().signInAnonymously().then(function(response){
     phone.value='';
     dboy.value='';
     status.value='';
+    address.value='';
+    place.value='';
     time.value='';
   
 }).catch(function(error){
